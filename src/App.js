@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import classes from "./App.module.css";
+import CurrentWeather from "./components/CurrentWeather";
+import NextDaysWeather from "./components/NextDaysWeather";
+import SearchCity from "./components/SearchCity";
 
-function App() {
+const App = () => {
+  const [dark, setDark] = useState(false);
+
+  const changeTheme = () => {
+    setDark((prevState) => !prevState);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${classes.App} ${dark ? classes.darkTheme : ""}`}>
+      <button
+        onClick={changeTheme}
+        type="button"
+        className={`${classes.themeBtn} ${dark ? classes.darkBtn : ""}`}
+      >
+        <span></span> <p>{dark ? "DARK" : "LIGHT"}</p>
+      </button>
+      <SearchCity />
+      <CurrentWeather />
+      <NextDaysWeather />
     </div>
   );
-}
+};
 
 export default App;
