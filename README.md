@@ -1,3 +1,6 @@
+# React Weather App
+I saw really nice minimalistic design on Pinterest for a little bit more complex weather app so I wanted to code it and test my async API skills. In this app I collect data from two different APIs, first one is "ipwho" which helps me get initial user info on entering website, such as current longitude and latitude which then I pass to "openweather" API to get weather and other data. On initial opening, it will collect data for your own location and city, but it also has option to enter any city you want and get data for that city for current day, as well as next five days. I use React Context Api for managing data and state across components tree. App also has light and dark mode with some nice transitions. Design is meant for smartphones but it looks decent on larger devices aswell.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
