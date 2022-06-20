@@ -60,12 +60,12 @@ const WeatherProvider = ({ children }) => {
     },
   });
 
-  const apiKey = "e2a7a20dd6db7ce156f94bc93ea58810";
+  const apiKey = process.env.REACT_APP_API_KEY;
   let lat = "";
   let lon = "";
 
   const defaultCity = async () => {
-    const response = await fetch("http://ipwho.is/");
+    const response = await fetch("https://ipwho.is/");
     const data = await response.json();
     lat = data.latitude;
     lon = data.longitude;
@@ -75,7 +75,7 @@ const WeatherProvider = ({ children }) => {
 
   const getCityByName = async (city) => {
     const response =
-      await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}
+      await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}
     `);
     const data = await response.json();
     lat = data[0].lat;
@@ -109,7 +109,7 @@ const WeatherProvider = ({ children }) => {
         temp: data.current.temp.toFixed(1),
         main: data.current.weather[0].main,
         desc: data.current.weather[0].description,
-        icon: `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`,
+        icon: `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`,
         city: city,
         timezone: data.timezone,
         date: today.toLocaleDateString("en-US", options),
@@ -120,7 +120,7 @@ const WeatherProvider = ({ children }) => {
         max: data.daily[0].temp.max.toFixed(1),
         main: data.daily[0].weather[0].main,
         desc: data.daily[0].weather[0].description,
-        icon: `http://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png`,
+        icon: `https://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png`,
         date: first.toLocaleDateString("en-US", options),
       },
       second: {
@@ -129,7 +129,7 @@ const WeatherProvider = ({ children }) => {
         max: data.daily[1].temp.max.toFixed(1),
         main: data.daily[1].weather[0].main,
         desc: data.daily[1].weather[0].description,
-        icon: `http://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}@2x.png`,
+        icon: `https://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}@2x.png`,
         date: second.toLocaleDateString("en-US", options),
       },
       third: {
@@ -138,7 +138,7 @@ const WeatherProvider = ({ children }) => {
         max: data.daily[2].temp.max.toFixed(1),
         main: data.daily[2].weather[0].main,
         desc: data.daily[2].weather[0].description,
-        icon: `http://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}@2x.png`,
+        icon: `https://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}@2x.png`,
         date: third.toLocaleDateString("en-US", options),
       },
       fourth: {
@@ -147,7 +147,7 @@ const WeatherProvider = ({ children }) => {
         max: data.daily[3].temp.max.toFixed(1),
         main: data.daily[3].weather[0].main,
         desc: data.daily[3].weather[0].description,
-        icon: `http://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}@2x.png`,
+        icon: `https://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}@2x.png`,
         date: fourth.toLocaleDateString("en-US", options),
       },
       fifth: {
@@ -156,7 +156,7 @@ const WeatherProvider = ({ children }) => {
         max: data.daily[4].temp.max.toFixed(1),
         main: data.daily[4].weather[0].main,
         desc: data.daily[4].weather[0].description,
-        icon: `http://openweathermap.org/img/wn/${data.daily[4].weather[0].icon}@2x.png`,
+        icon: `https://openweathermap.org/img/wn/${data.daily[4].weather[0].icon}@2x.png`,
         date: fifth.toLocaleDateString("en-US", options),
       },
     });

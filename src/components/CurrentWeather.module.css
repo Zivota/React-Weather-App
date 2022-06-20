@@ -8,6 +8,7 @@
 
 .city h3 {
   font-size: 1.8rem;
+  text-transform: capitalize;
 }
 
 .city p {
